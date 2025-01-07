@@ -1,0 +1,42 @@
+
+
+body {
+    margin: 0;
+    display: flex;
+}
+#login-wallpaper {
+    width: 100vw;
+    height: 100vh;
+}
+#logo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 50px;
+}
+.right-panel {
+    position: absolute;
+    background-color: burlywood;
+    right: 0;
+    width: 30%;
+    align-items: center;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.right-panel input {
+    width: 70%;
+    margin-bottom: 10px;
+    background: transparent;
+    border: none;
+    font-size: 16px;
+    border-bottom: 2px solid black;
+}
+.right-panel button {
+    margin: 5px;
+    padding: 5px;
+    font-weight: bold;
+}
+.login-button button:hover {
+    background-color: aquamarine;
+}
