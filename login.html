@@ -5,14 +5,17 @@
     <script src="script.js" defer></script>
 </head>
 <body>
+    <div class="login-page">
     <img src="food_wallpaper.webp" id="login-wallpaper">
     <div class="right-panel">
         <img src="BiteDash logo.webp" id="logo">
         <input type="email" placeholder="Enter Email">
         <input type="password" placeholder="Enter password">
-        <div class="login-button">
-            <button>Register</button>
-            <button onclick="navigateToPage('main.html')">Login</button>
+        <div>
+            <button class="clickable-button" onclick="registered()">Register</button>
+            <button class="clickable-button" onclick="navigateToPage('main.html')">Login</button>
         </div>
+        <p id="registered-status"></p>
+    </div>
     </div>
 </body>
