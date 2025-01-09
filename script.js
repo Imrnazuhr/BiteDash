@@ -9,6 +9,16 @@ const food = [
     {id: "f06", name: "Curly Fries", category: "Snack", price: "6",  vendor: "WackDonalds", ingredient: "potatoes, vegetable oil, cornstarch, flour, paprika, garlic powder, onion powder, salt, and pepper", description: "Curly fries are seasoned, spiral-cut potatoes, deep-fried to a crispy texture, often served as a snack or side dish.", rating: "4.8"}
 ];
 
+/* Variable List */
+
+const params = new URLSearchParams(window.location.search);
+const foodId = params.get("id");
+const selectedFood = food.find(food => food.id === foodId);
+const foodTitle = document.getElementById("food-title");
+const foodDescription = document.getElementById("food-description");
+
+/* Function */
+
 function navigateToPage(page) {
     window.location.href = page;
 }
@@ -16,3 +26,7 @@ function registered() {
     document.getElementById("registered-status").textContent = "Your account has been registered!";
 }
 
+if(selectedFood) {
+    foodTitle.textContent = selectedFood.name;
+    foodDescription.textContent = selectedFood.description;
+}
