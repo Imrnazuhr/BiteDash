@@ -2,6 +2,7 @@
 body {
     margin: 0;
     background-color: burlywood;
+    font-family: "";
 }
 button {
     cursor: pointer;
@@ -85,10 +86,31 @@ button:hover {
     width: 350px;
     height: 200px;
     border: 2px solid black;
-    background-color: white;
+    background-color: rgb(196, 112, 3);
     margin: 10px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+.recipe-item p{
+    background-color: blue;
+
+}
+.recipe-item img {
+    width: 350px;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+  }
+
+.recipe-item h3 {
+    margin-top: 5px;
+}
+
+.recipe-button {
+    display: flex;
+    align-items: center;
 }
