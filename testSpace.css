@@ -1,73 +1,40 @@
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-  }
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
 
-  #login-wallpaper {
-    width: 100%;
-    height: 100%;
-  }
-  .login-container {
-    display: flex;
-    height: 100vh;
-    background-color: black;
-    color: white;
-  }
+h1 {
+  text-align: center;
+  color: #2e8b57;
+}
 
-  .right-panel {
-    position: absolute;
-    right: 0;
-    width: 30%;
-    height: 100%;
-    float: right;
-    flex: 1;
-    background-color: #7ad3d6;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: black;
-  }
+#searchBox, #filterCategory {
+  display: block;
+  margin: 10px auto;
+  padding: 8px;
+  font-size: 16px;
+  width: 50%;
+}
 
-  .logo {
-    width: 100px;
-    height: 100px;
-    background-color: gray;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 20px;
-    font-size: 24px;
-    font-weight: bold;
-  }
+#productList {
+  list-style-type: none;
+  padding: 0;
+}
 
-  .input-container {
-    width: 70%;
-    margin-bottom: 20px;
-  }
+.product {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
 
-  .input-container input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: none;
-    border-bottom: 2px solid black;
-    background: transparent;
-    outline: none;
-    font-size: 16px;
-  }
+.product h3 {
+  margin: 0;
+  color: #333;
+}
 
-  .button-container button {
-    width: 100px;
-    padding: 10px;
-    margin: 5px;
-    border: 1px solid black;
-    background: white;
-    cursor: pointer;
-    font-weight: bold;
-  }
-
-  .button-container button:hover {
-    background-color: #ddd;
-  }
+.product p {
+  margin: 5px 0;
+  color: #666;
+}
