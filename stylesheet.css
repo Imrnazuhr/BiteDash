@@ -2,6 +2,7 @@
 body {
     margin: 0;
     background-color: burlywood;
+    font-family: "";
 }
 button {
     cursor: pointer;
@@ -85,7 +86,7 @@ button:hover {
     width: 350px;
     height: 200px;
     border: 2px solid black;
-    background-color: white;
+    background-color: rgb(196, 112, 3);
     margin: 10px;
     display: flex;
     flex-direction: column;
@@ -99,9 +100,17 @@ button:hover {
 
 }
 .recipe-item img {
-    max-width: 100%;
-    max-height: 100%;
+    width: 350px;
+    height: 200px;
     object-fit: cover;
-    border-radius: 20px;
     display: block;
   }
+
+.recipe-item h3 {
+    margin-top: 5px;
+}
+
+.recipe-button {
+    display: flex;
+    align-items: center;
+}
