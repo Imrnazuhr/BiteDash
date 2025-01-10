@@ -113,4 +113,23 @@ button:hover {
 .recipe-button {
     display: flex;
     align-items: center;
+    justify-content: center;
+}
+.recipe-button button{
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    position: relative;
+}
+
+/* For Food Item Page */
+
+.food-item-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#food-image {
+    width: 90vw;
 }
