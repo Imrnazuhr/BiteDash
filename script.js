@@ -9,26 +9,38 @@ const food = [
     {id: "f06", name: "Curly Fries", category: "Snack", price: "6",  vendor: "WackDonalds", ingredient: "potatoes, vegetable oil, cornstarch, flour, paprika, garlic powder, onion powder, salt, and pepper", description: "Curly fries are seasoned, spiral-cut potatoes, deep-fried to a crispy texture, often served as a snack or side dish.", rating: "4.8", image: "curly_fries.jpg"}
 ];
 
-/* Variable List */
+const currentPage = window.location.pathname.split("/").pop();
 
-const params = new URLSearchParams(window.location.search);
-const foodId = params.get("id");
-const selectedFood = food.find(food => food.id === foodId);
+if(currentPage === "main.html") {
+    const foodList = document.getElementById("food-list");
+    food.forEach(food => {
+    const foodDiv = document.createElement("div");
+    foodDiv.className = "food-item";
+    foodDiv.onclick = () => navigateToPage(`food_item.html?id=${food.id}`);
+    foodDiv.innerHTML = `
+        <img src=${food.image}>
+        <h3>${food.name}</h3>
+        `;
+    foodList.appendChild(foodDiv);
+});
 
-/* Function */
+    function navigateToPage(page) {
+        window.location.href = page;
+    }
+} else if(currentPage === "food_item.html") {
+    const params = new URLSearchParams(window.location.search);
+    const foodId = params.get("id");
+    const selectedFood = food.find(food => food.id === foodId);
 
-function navigateToPage(page) {
-    window.location.href = page;
+    if(selectedFood) {
+        document.getElementById("food-title").textContent = selectedFood.name;
+        document.getElementById("food-description").textContent = selectedFood.description;
+        document.getElementById("food-ingredient").textContent = selectedFood.ingredient;
+        document.getElementById("food-rating").textContent = selectedFood.rating;
+        document.getElementById("food-image").src = selectedFood.image;
+    }
 }
+
 function registered() {
     document.getElementById("registered-status").textContent = "Your account has been registered!";
-}
-
-if(selectedFood) {
-    
-    document.getElementById("food-title").textContent = selectedFood.name;
-    document.getElementById("food-description").textContent = selectedFood.description;
-    document.getElementById("food-ingredient").textContent = selectedFood.ingredient;
-    document.getElementById("food-rating").textContent = selectedFood.rating;
-    document.getElementById("food-image").src = selectedFood.image;
 }

@@ -75,13 +75,12 @@ button:hover {
     color: #ffffffac;
     font-style: italic;
 }
-.recipe-list {
+#food-list {
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
+    align-items: center;
 }
-.recipe-item {
+.food-item {
     border-radius: 20px;
     width: 350px;
     height: 200px;
@@ -95,31 +94,19 @@ button:hover {
     box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
     overflow: hidden;
 }
-.recipe-item p{
+.food-item p{
     background-color: blue;
 
 }
-.recipe-item img {
+.food-item img {
     width: 350px;
     height: 200px;
     object-fit: cover;
     display: block;
   }
 
-.recipe-item h3 {
+.food-item h3 {
     margin-top: 5px;
-}
-
-.recipe-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.recipe-button button{
-    padding: 10px;
-    margin-bottom: 10px;
-    border: none;
-    position: relative;
 }
 
 /* For Food Item Page */
