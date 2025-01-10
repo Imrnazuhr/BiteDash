@@ -1,5 +1,3 @@
-/* Dataset */
-
 const food = [
     {id: "f01", name: "Nasi Lemak", category: "Main Dish", price: "5.50", vendor: "Nasi Lemak Burung Merpati", ingredient: "rice, coconut milk, pandan leaves, anchovies, peanuts, hard-boiled eggs, cucumber, and sambal", description: "Nasi lemak is a fragrant Malaysian dish featuring coconut rice, sambal, anchovies, peanuts, boiled egg, and cucumber.", rating: "4.2", image: "nasi_lemak.jpeg"},
     {id: "f02", name: "Roti Canai", category: "Appetizer", price: "1.30", vendor: "Mamak Soddom", ingredient: "flour, water, salt, sugar, ghee or oil, and optional egg", description: "Roti canai is a flaky, crispy Malaysian flatbread, often served with curry, dhal, or sweet condensed milk.", rating: "4.5", image: "roti_canai.jpg"},
@@ -12,21 +10,38 @@ const food = [
 const currentPage = window.location.pathname.split("/").pop();
 
 if(currentPage === "main.html") {
+    
     const foodList = document.getElementById("food-list");
-    food.forEach(food => {
-    const foodDiv = document.createElement("div");
-    foodDiv.className = "food-item";
-    foodDiv.onclick = () => navigateToPage(`food_item.html?id=${food.id}`);
-    foodDiv.innerHTML = `
-        <img src=${food.image}>
-        <h3>${food.name}</h3>
-        `;
-    foodList.appendChild(foodDiv);
-});
+    const filterCategory = document.getElementById("filter-category");
 
+    displayFood(food);
+
+    filterCategory.addEventListener("change", () => {
+        const selectedCategory = filterCategory.value;
+        const filteredFood = selectedCategory === "all"
+        ? food
+        : food.filter(food => food.category === selectedCategory);
+        displayFood(filteredFood);
+    });
+
+    function displayFood(foodItem) {
+        foodList.innerHTML = "";
+        foodItem.forEach(food => {
+            const foodDiv = document.createElement("div");
+            foodDiv.className = "food-item";
+            foodDiv.onclick = () => navigateToPage(`food_item.html?id=${food.id}`);
+            foodDiv.innerHTML = `
+                <img src=${food.image}>
+                <h3>${food.name}</h3>
+                `;
+            foodList.appendChild(foodDiv);
+            });
+    }
+    
     function navigateToPage(page) {
         window.location.href = page;
     }
+
 } else if(currentPage === "food_item.html") {
     const params = new URLSearchParams(window.location.search);
     const foodId = params.get("id");
