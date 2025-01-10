@@ -9,6 +9,10 @@ const food = [
 
 const currentPage = window.location.pathname.split("/").pop();
 
+function navigateToPage(page) {
+    window.location.href = page;
+}
+
 if(currentPage === "main.html") {
     
     const foodList = document.getElementById("food-list");
@@ -37,11 +41,6 @@ if(currentPage === "main.html") {
             foodList.appendChild(foodDiv);
             });
     }
-    
-    function navigateToPage(page) {
-        window.location.href = page;
-    }
-
 } else if(currentPage === "food_item.html") {
     const params = new URLSearchParams(window.location.search);
     const foodId = params.get("id");
