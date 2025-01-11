@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>User Account</title>
+
+    <!-- CSS Style -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            background-color: burlywood;
+            height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            justify-content: space-between;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            background-color: burlywood;
+        }
+
+        .header img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: lightgray;
+            margin-right: 15px;
+        }
+
+        .header .account-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .main-content {
+            flex-grow: 1;
+            display: flex;
+            padding: 20px;
+            gap: 20px;
+        }
+
+        .bio {
+            flex: 1;
+            background-color: rgb(196, 112, 3);
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        .bio h2 {
+            margin-bottom: 10px;
+        }
+
+        .bio textarea {
+            width: 100%;
+            height: 100px;
+            border-radius: 8px;
+            padding: 10px;
+            font-size: 16px;
+            font-family: Arial, sans-serif;
+            border: 1px solid black;
+            background-color: #fff; /* Default background */
+            transition: background-color 0.3s ease; /* Smooth transition */
+        }
+
+        .bio textarea:disabled {
+            background-color: transparent; /* Transparent when disabled */
+            color: #000;
+        }
+
+        .user-statistics {
+            flex: 2;
+            background-color: rgb(196, 112, 3);
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        .user-statistics h1 {
+            margin-bottom: 10px;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+            background-color: burlywood;
+        }
+
+        .footer button {
+            background-color: #f5f5f5;
+            border: 1px solid black;
+            border-radius: 8px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-family: Arial, sans-serif;
+        }
+
+        .footer button:hover {
+            background-color: #ddd;
+        }
+
+        .footer button:active {
+            background-color: grey;
+        }
+    </style>
+
+    <!-- JavaScript -->
+    <script>
+        // Populate account name and email from localStorage
+        function populateAccountInfo() {
+            const userDetails = JSON.parse(localStorage.getItem("userDetails"));
+
+            if (userDetails) {
+                document.getElementById("account-email").textContent = userDetails.email || "No email provided";
+                document.getElementById("account-username").textContent = userDetails.username || "No username provided";
+                document.getElementById("account-bio").value = userDetails.bio || "No bio provided.";
+            } else {
+                console.error("No userDetails found in localStorage.");
+                document.getElementById("account-email").textContent = "No email provided";
+                document.getElementById("account-username").textContent = "No username provided";
+                document.getElementById("account-bio").value = "No bio provided.";
+            }
+        }
+
+        // Enable editing of the bio
+        function enableEditing() {
+            const bioField = document.getElementById("account-bio");
+            bioField.disabled = false; // Enable editing
+            bioField.style.backgroundColor = "#fff"; // White background when editing
+            bioField.focus(); // Focus on the bio field
+        }
+
+        // Save edited bio to localStorage
+        function saveBio() {
+            const bioField = document.getElementById("account-bio");
+            const newBio = bioField.value;
+
+            const userDetails = JSON.parse(localStorage.getItem("userDetails")) || {};
+            userDetails.bio = newBio; // Update bio in the object
+
+            // Save updated userDetails back to localStorage
+            localStorage.setItem("userDetails", JSON.stringify(userDetails));
+
+            // Disable the textarea after saving
+            bioField.disabled = true;
+            bioField.style.backgroundColor = "transparent"; // Transparent background when saved
+
+            alert("Bio saved successfully!");
+        }
+
+        // Navigate back to the main page
+        function navigateBack() {
+            window.location.href = 'main.html';
+        }
+
+        // Navigate to login page (logout)
+        function navigateLogout() {
+            window.location.href = 'login.html';
+        }
+
+        // Populate account info on page load
+        window.onload = populateAccountInfo;
+    </script>
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <div class="header">
+            <img src="BiteDash logo.webp" alt="Logo">
+            <div class="account-info">
+                <h1 id="account-username">Loading...</h1>
+                <h3 id="account-email">Loading...</h3>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Bio Section -->
+            <div class="bio">
+                <h2>Bio</h2>
+                <textarea id="account-bio" disabled></textarea>
+            </div>
+
+            <!-- User Statistics Section -->
+            <div class="user-statistics">
+                <h1>User Statistics</h1>
+                <p>Account Statistic</p>
+            </div>
+        </div>
+
+        <!-- Footer Buttons -->
+        <div class="footer">
+            <button onclick="navigateBack()">Back</button>
+            <button onclick="enableEditing()">Edit</button>
+            <button onclick="saveBio()">Save</button>
+            <button onclick="navigateLogout()">Logout</button>
+        </div>
+    </div>
+</body>
+</html>

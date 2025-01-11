@@ -1,22 +1,105 @@
 <!DOCTYPE html>
+
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bite Dash Food Delivery</title>
     <link rel="stylesheet" href="stylesheet.css">
-    <script src="script.js" defer></script>
+    <script>
+
+        // Function to check email format validity
+        function isValidEmail(email) {
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailPattern.test(email);
+        }
+
+        // Register user with username, email, and password
+        function registerUser() {
+            const emailInput = document.querySelector("input[type='email']");
+            const email = emailInput.value;
+            const usernameInput = document.querySelector("input[name='username']");
+            const username = usernameInput ? usernameInput.value : null;
+            const passwordInput = document.querySelector("input[type='password']");
+            const password = passwordInput.value;
+
+            if (!username || !email || !password || !isValidEmail(email)) {
+                document.getElementById("registered-status").textContent = "Please enter a valid Username, Email, and Password.";
+                document.getElementById("registered-status").style.color = "red";
+                return;
+            }
+
+            // Save user details to localStorage
+            const userDetails = { username, email, password };
+            localStorage.setItem("userDetails", JSON.stringify(userDetails));
+
+            document.getElementById("registered-status").textContent = "Registration successful!";
+            document.getElementById("registered-status").style.color = "green";
+
+            // Redirect to the account page
+            setTimeout(() => {
+                window.location.href = "account.html";
+            }, 1500);
+        }
+
+        // Log in user
+        function loginUser() {
+            const emailInput = document.querySelector("input[type='email']");
+            const passwordInput = document.querySelector("input[type='password']");
+            const email = emailInput.value;
+            const password = passwordInput.value;
+
+            if (!email || !password) {
+                document.getElementById("registered-status").textContent = "Please enter Email and Password.";
+                document.getElementById("registered-status").style.color = "red";
+                return;
+            }
+
+            const userDetails = JSON.parse(localStorage.getItem("userDetails"));
+
+            if (!userDetails || email !== userDetails.email || password !== userDetails.password) {
+                document.getElementById("registered-status").textContent = "Unregistered email or incorrect password. Please register.";
+                document.getElementById("registered-status").style.color = "red";
+
+                // Show username input for registration
+                if (!document.querySelector("input[name='username']")) {
+                    const usernameInput = document.createElement("input");
+                    usernameInput.setAttribute("type", "text");
+                    usernameInput.setAttribute("name", "username");
+                    usernameInput.setAttribute("placeholder", "Enter Username");
+                    usernameInput.style.marginTop = "10px";
+                    emailInput.parentNode.insertBefore(usernameInput, emailInput);
+                }
+                return;
+            }
+
+            // Redirect to main page if login is successful
+            window.location.href = "main.html";
+        }
+    </script>
 </head>
 <body>
     <div class="login-page">
-    <img src="food_wallpaper.webp" id="login-wallpaper">
-    <div class="right-panel">
-        <img src="BiteDash logo.webp" id="logo">
-        <input type="email" placeholder="Enter Email">
-        <input type="password" placeholder="Enter password">
-        <div>
-            <button class="clickable-button" onclick="registered()">Register</button>
-            <button class="clickable-button" onclick="navigateToPage('main.html')">Login</button>
+        <!-- Background wallpaper -->
+        <img src="food_wallpaper.webp" id="login-wallpaper" alt="Login Wallpaper">
+
+        <div class="right-panel">
+            <!-- Logo -->
+            <img src="BiteDash logo.webp" id="logo" alt="BiteDash Logo">
+
+            <!-- Input fields for email, password, and optional username -->
+            <input type="email" placeholder="Enter Email">
+            <input type="password" placeholder="Enter Password">
+
+            <!-- Buttons for Register and Login -->
+            <div>
+                <button class="clickable-button" onclick="registerUser()">Register</button>
+                <button class="clickable-button" onclick="loginUser()">Login</button>
+            </div>
+
+            <!-- Status message area -->
+            <p id="registered-status"></p>
         </div>
-        <p id="registered-status"></p>
-    </div>
     </div>
 </body>
 </html>
