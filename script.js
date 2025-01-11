@@ -47,6 +47,30 @@ function addToCart() {
         document.getElementById('test').innerText = cartItem.name; // Display the food name as a test
     }
 }
+        // Function to populate the username and email in the account header
+        function populateAccountInfo() {
+            const userDetails = JSON.parse(localStorage.getItem("userDetails"));
+    
+            if (userDetails) {
+                document.getElementById("account-email").textContent = userDetails.email;
+                document.getElementById("account-username").textContent = userDetails.username || "No username provided";
+            } else {
+                document.getElementById("account-email").textContent = "No email provided";
+                document.getElementById("account-username").textContent = "No username provided";
+            }
+        }
+
+        // Back button function to navigate to main.html
+        function navigateBack() {
+            window.location.href = 'main.html';
+        }
+
+        // Logout button function to navigate to login.html
+        function navigateLogout() {
+            window.location.href = 'login.html';
+        }
+
+        window.onload = populateAccountInfo;
 function displayCart() {
     const display = document.getElementById('addToCart-list');
     display.innerHTML = '';

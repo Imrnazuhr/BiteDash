@@ -2,7 +2,7 @@
 body {
     margin: 0;
     background-color: burlywood;
-    font-family: "";
+    font-family: Arial, sans-serif;
 }
 button {
     cursor: pointer;
@@ -119,4 +119,84 @@ button:hover {
 
 #food-image {
     width: 90vw;
+}
+
+/* For Account Page */
+
+.account-page {
+    display: flex;
+    padding: 0;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 100vh;
+}
+.header {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background-color: burlywood;
+}
+.header img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: lightgray;
+    margin-right: 15px;
+}
+.header .account-info {
+    display: flex;
+    flex-direction: column;         
+}
+.main-content {
+    flex-grow: 1;
+    display: flex;
+    padding: 20px;
+    gap: 20px;
+}
+
+.bio {
+    flex: 1;
+    background-color: rgb(196, 112, 3);
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.bio h2 {
+    margin-bottom: 10px;
+}
+
+.user-statistics {
+    flex: 2;
+    background-color: rgb(196, 112, 3);
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.user-statistics h1 {
+    margin-bottom: 10px;
+}
+.footer {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    background-color: burlywood;
+}
+
+.footer button {
+    background-color: #f5f5f5;
+    border: 1px solid black;
+    border-radius: 8px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.footer button:hover {
+    background-color: #ddd;
+}
+
+.footer button:active {
+    background-color: grey;
 }
