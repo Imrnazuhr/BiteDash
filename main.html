@@ -2,24 +2,21 @@
 <head>
     <title>Main Page</title>
     <link rel="stylesheet" href="stylesheet.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
     <div class="main-page">
-        <div class="main-navigator">
-            <button class="clickable-button" onclick="navigateToPage('bookmark.html')">Bookmarked</button>
-            <input type="text" placeholder="Search..." id="search-bar">
-            <select id="filter-category">
-                <option value="all">All Food</option>
-                <option value="Main Dish">Main Dish</option>
-                <option value="Appetizer">Appetizer</option>
-                <option value="Dessert">Dessert</option>
-                <option value="Snack">Snack</option>
-            </select>
-            <button id="profile-button">Profile</button>
-            <button class="clickable-button" onclick="navigateToPage('checkOut.html')">Display Cart</button>
-        </div>
-        <div id="food-list"></div>
+    <div class="main-navigator">
+        <input type="text" placeholder="Search..." id="search-bar">
+        <select id="filter-category">
+            <option value="all">All Food</option>
+            <option value="Main Dish">Main Dish</option>
+            <option value="Appetizer">Appetizer</option>
+            <option value="Dessert">Dessert</option>
+            <option value="Snack">Snack</option>
+        </select>
+        <button id="profile-button" onclick="navigateToPage('account.html')">Profile</button>
     </div>
-    <script src="script.js"></script>
+    <div id="food-list"></div>
 </body>
 </html>
