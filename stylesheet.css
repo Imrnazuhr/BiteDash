@@ -2,7 +2,7 @@
 body {
     margin: 0;
     background-color: burlywood;
-    font-family: "";
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 button {
     cursor: pointer;
@@ -52,6 +52,7 @@ button:hover {
 }
 
 /* For Main Page */
+
 
 .main-navigator {
     margin: 15px;
@@ -109,6 +110,12 @@ button:hover {
     margin-top: 5px;
 }
 
+#filter-category {
+    border-radius: 25px;
+    margin: 5px;
+    width: 20%;
+}
+
 /* For Food Item Page */
 
 .food-item-page {
@@ -118,5 +125,97 @@ button:hover {
 }
 
 #food-image {
-    width: 90vw;
+    width: 100vw;
+    height: 30vw;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+#food-title {
+    margin-top: 3px;
+    text-align: center;
+    text-decoration: underline;
+}
+
+.back-button {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 14px; 
+    border-radius: 250px; 
+
+}
+
+.foodDetails {
+    border: 1px solid #ccc; 
+    padding: 30px;  
+    background-color: #cf0e0edc; 
+    border-radius: 25px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.foodDetails h2{
+   text-decoration: underline;
+}
+
+#food-title + h2 {
+    text-decoration: underline;
+}
+
+#food-description + h2 {
+    text-decoration: underline;
+}
+
+#food-description {
+    border: 1px solid #ccc; 
+    padding: 10px; 
+    margin-bottom: 20px; 
+    background-color: #f3df00e6; 
+    border-radius: 5px; 
+    flex-grow: 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+    font-size: 25px;
+    font-weight: bolder;
+    text-decoration: und;
+}
+
+#food-ingredient + h2 {
+    text-decoration: underline;
+}
+
+#food-ingredient {
+    border: 1px solid #ccc; 
+    padding: 10px; 
+    margin-bottom: 20px; 
+    background-color: #f3df00e6; 
+    border-radius: 5px; 
+    flex-grow: 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display:inline-block;
+    font-size: 20px;
+    font-weight: bolder;
+
+}
+
+#food-rating {
+    text-decoration: double;
+    font-size: 50px;
+    text-decoration: underline;
+}
+
+#cartButton {
+    margin: 5px;
+    padding: 10px;
+    background-color: black;
+    color: white;
+    border-radius: 25px;
+    font-weight: bold;
+    text-align: center;
+    display: block; 
+    margin: 0 auto; 
 }
