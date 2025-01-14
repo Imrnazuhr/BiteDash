@@ -98,10 +98,17 @@ function displayCart() {
     }
 }
 function payment() {
-    cart.length = 0;
-    displayCart();
-    document.getElementById("addToCart-list").innerText = "Thankyou for The Payment!";
-    localStorage.clear();
+
+    let addressInput = document.getElementById("address-input");
+
+    if (addressInput.value === null || addressInput.value === "") {
+        addressInput.placeholder = "Need to fill Address First!";
+    } else {
+        cart.length = 0;
+        displayCart();
+        document.getElementById("addToCart-list").innerText = "Thankyou for The Payment!";
+        localStorage.clear();
+    }
 }
 
 if (currentPage === "main.html") {
