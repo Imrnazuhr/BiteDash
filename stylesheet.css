@@ -3,10 +3,6 @@ body {
     margin: 0;
     background-color: burlywood;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    background-image: url("wallpaper.png");
-    background-repeat: repeat; 
-    background-size: auto;
-    background-position: top left;
 }
 button {
     cursor: pointer;
@@ -57,7 +53,12 @@ button:hover {
 
 /* For Main Page */
 
-
+.main-page {
+    background-image: url("wallpaper.png");
+    background-repeat: repeat; 
+    background-size: auto;
+    background-position: top left;
+}
 .main-navigator {
     margin: 15px;
     display: flex;
@@ -346,4 +347,13 @@ button:hover {
 .total-price {
     color: white ;
     font-size: 2em;
+}
+.checkOut-page {
+    background-image: url(fooditem_background.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin: 0;
+    height: 100vh; 
 }
