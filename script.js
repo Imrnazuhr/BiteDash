@@ -138,4 +138,14 @@ function registered() {
     document.getElementById("registered-status").textContent = "Your account has been registered!";
 }
 
+function searchFood() {
+    const query = document.getElementById("search-bar").value.toLowerCase();
+    const filteredFood = food.filter(item =>
+        item.name.toLowerCase().includes(query) || 
+        item.description.toLowerCase().includes(query) || 
+        item.ingredient.toLowerCase().includes(query)
+    );
+    displayFood(filteredFood);
+}
+
 
