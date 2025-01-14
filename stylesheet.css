@@ -229,6 +229,16 @@ button:hover {
     font-style: italic;
     text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
 }
+#food-price {
+    text-decoration: double;
+    font-size: 50px;
+    text-decoration: underline;
+    font-style: italic;
+    color: white; /* Text color */
+    -webkit-text-stroke: 1px black; /* Outline */
+    font-style: italic;
+    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
+}
 
 #cartButton {
     margin: 5px;
