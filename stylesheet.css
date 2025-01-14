@@ -359,8 +359,13 @@ button:hover {
     background-image: url(fooditem_background.jpg);
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     background-attachment: fixed;
     margin: 0;
     height: 100vh; 
+}
+#payment-button {
+    margin: 20px;
+    position: relative;
+    bottom: 0;
 }
