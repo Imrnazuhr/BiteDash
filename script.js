@@ -98,12 +98,16 @@ function displayCart() {
     }
 }
 function payment() {
-    cart.length = 0;
-    displayCart();
-    document.getElementById("addToCart-list").innerText = "Thankyou for The Payment!";
-    localStorage.clear();
-}
+    const addressInput = document.getElementById('address-input').value;
 
+    if (!addressInput) {
+        alert('Please enter your address before proceeding to payment.');
+        return;
+    }
+
+    alert(Thank you! Your order will be delivered to: ${addressInput});
+    // Additional payment process logic can go here
+}
 if (currentPage === "main.html") {
     displayFood(food);
     const filterCategory = document.getElementById("filter-category");
