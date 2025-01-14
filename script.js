@@ -47,7 +47,6 @@ function addToCart() {
         document.getElementById('test').innerText = cartItem.name; // Display the food name as a test
     }
 }
-        // Function to populate the username and email in the account header
         function populateAccountInfo() {
             const userDetails = JSON.parse(localStorage.getItem("userDetails"));
     
@@ -62,7 +61,7 @@ function addToCart() {
 
         // Back button function to navigate to main.html
         function navigateBack() {
-            window.location.href = 'main.html';
+            window.location.href = 'index.html';
         }
 
         // Logout button function to navigate to login.html
@@ -111,7 +110,7 @@ function payment() {
     }
 }
 
-if (currentPage === "main.html") {
+if (currentPage === "index.html") {
     displayFood(food);
     const filterCategory = document.getElementById("filter-category");
     filterCategory.addEventListener("change", () => {
