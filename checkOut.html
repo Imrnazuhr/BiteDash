@@ -1,15 +1,44 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Check Out Page</title>
     <link rel="stylesheet" href="stylesheet.css">
 </head>
 <body>
     <div class="checkOut-page">
-    <button class="clickable-button" onclick="navigateToPage('main.html')">Back</button>
-    <h1 id="order-list">Order List</h1>
-    <p id="addToCart-list"></p>
+        <button class="clickable-button" onclick="navigateToPage('main.html')">Back</button>
+        <h1 id="order-list">Order List</h1>
+        <p id="addToCart-list"></p>
+
+        <!-- Address Input -->
+        <div id="address-section">
+            <label for="address-input">Enter Your Address:</label><br>
+            <input type="text" id="address-input" placeholder="Your Address..." required>
+        </div>
+
+        <!-- Pay Button -->
+        <button id="payment-button" class="clickable-button" onclick="payment()">Pay Item</button>
+    </div>
+
     <script src="script.js"></script>
-    <button id="payment-button" class="clickable-button" onclick="payment()">Pay Item</button>
-</div>
+    <script>
+        function payment() {
+            const addressInput = document.getElementById('address-input').value;
+
+            if (!addressInput) {
+                alert('Please enter your address before proceeding to payment.');
+                return;
+            }
+
+            alert(Thank you! Your order will be delivered to: ${addressInput});
+            // Additional payment process logic can go here
+        }
+
+        function navigateToPage(page) {
+            window.location.href = page;
+        }
+    </script>
 </body>
 </html>
