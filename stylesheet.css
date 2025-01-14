@@ -362,7 +362,7 @@ button:hover {
     background-repeat: repeat;
     background-attachment: fixed;
     margin: 0;
-    height: 100vh; 
+    height: 100%; 
 }
 #payment-button {
     margin: 20px;
